@@ -39,7 +39,7 @@ resource "aws_instance" "zic" {
   //ami = "${data.aws_ami.zic_ami.id}"
   ami = "ami-06e6d8cdd15b4c655"
   instance_type = "m5.xlarge"
-  disable_api_termination = true
+  disable_api_termination = false
   associate_public_ip_address = true
   subnet_id = "${var.zic_subnet_01_id}"
   private_ip = "172.33.64.20"
