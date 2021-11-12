@@ -37,5 +37,5 @@ variable "account-id" {
 }
 
 variable "profile" {
- default = "awscredentialsfile"
+ default = "default"
 }
