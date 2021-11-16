@@ -1,16 +1,16 @@
-//data "aws_ami" "zic_ami" {
-//  most_recent = true
-//  owners = ["self"]
+data "aws_ami" "zic_ami" {
+  most_recent = true
+  owners = ["632738139297"]
 
-//  filter {
-//    name = "name"
-//    values = ["zAppliance-1.1.0"]
-//  }
-//  filter {
-//    name = "virtualization-type"
-//    values = ["hvm"]
-//  }
-//}
+  filter {
+    name = "name"
+    values = ["zAppliance-*"]
+  }
+  filter {
+    name = "virtualization-type"
+    values = ["hvm"]
+  }
+}
 
 
 //resource "aws_eip" "zic_eip" {
@@ -36,8 +36,7 @@
 //}
 
 resource "aws_instance" "zic" {
-  //ami = "${data.aws_ami.zic_ami.id}"
-  ami = "ami-06e6d8cdd15b4c655"
+  ami = "${data.aws_ami.zic_ami.id}"
   instance_type = "m5.xlarge"
   disable_api_termination = false
   associate_public_ip_address = true
