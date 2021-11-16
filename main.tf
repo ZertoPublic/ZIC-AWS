@@ -9,7 +9,7 @@ module "iam" {
   region = "${var.region}" 
   account-id  = "${var.account-id}" 
   user-identifier  = "${var.user-identifier}"
-  vpc_zic_id      = "${module.vpc.vpc_zic_id}"
+  vpc_zic_id       = "${module.vpc.vpc_zic_id}"
 }
 
 module "ec2" {
@@ -18,14 +18,14 @@ module "ec2" {
   zone_a    = "${var.zone_a}"
   zone_b    = "${var.zone_a}"
   zone_c    = "${var.zone_c}"
-  user-identifier     = "${var.user-identifier}"
+  user-identifier    = "${var.user-identifier}"
   vpc_zic_id         = "${module.vpc.vpc_zic_id}"
   
   zic_subnet_01_id   = "${module.vpc.zic_subnet_01_id}"
   zic_subnet_02_id   = "${module.vpc.zic_subnet_02_id}" 
 
   sg_pub_zic_id  = "${module.security_groups.sg_pub_zic_id}" 
-  sg_int_zic_id      = "${module.security_groups.sg_int_zic_id}"
+  sg_int_zic_id  = "${module.security_groups.sg_int_zic_id}"
   }
 
 module "vpc" {
@@ -33,7 +33,7 @@ module "vpc" {
   zone_a  = "${var.zone_a}"
   zone_b  = "${var.zone_b}"
   zone_c  = "${var.zone_c}"
-  user-identifier      = "${var.user-identifier}"
+  user-identifier     = "${var.user-identifier}"
   
   vpc_zic_cidr        = "${var.vpc_zic_cidr}"
   zic_subnet_01_cidr  = "${var.zic_subnet_01_cidr}"
@@ -41,8 +41,8 @@ module "vpc" {
   }
 
 module "security_groups"  {
-  source              = "./modules/security_groups"
-  user-identifier  = "${var.user-identifier}"
+  source          = "./modules/security_groups"
+  user-identifier = "${var.user-identifier}"
   vpc_zic_id      = "${module.vpc.vpc_zic_id}"
   }
 
