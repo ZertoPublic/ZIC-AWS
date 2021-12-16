@@ -40,7 +40,3 @@ variable "sg_int_zic_id" {
 variable "ec2_key_name" {
     default = ""
 }
-
-variable "zca_role_name" {
-  default = ""
-}
